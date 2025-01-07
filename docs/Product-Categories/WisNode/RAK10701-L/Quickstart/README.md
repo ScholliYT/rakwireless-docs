@@ -831,7 +831,7 @@ function Decoder(bytes, fPort) {
         var gw_long = {};
 
         decoded.num_gw = 0;
-        for (idx_tst = 0; idx_tst < 10; idx_tst++)
+        for (idx_tst = 0; idx_tst < 20; idx_tst++)
         {
             if (typeof (normalizedPayload.gateways[idx_tst]) != "undefined")
             {
@@ -896,25 +896,25 @@ function Decoder(bytes, fPort) {
 
         switch (decoded.num_gw) {
             case 20:
-                decoded.hotspot_10 = "(" + gw_lat[19] + "," + gw_long[19] + ")";
+                decoded.hotspot_20 = "(" + gw_lat[19] + "," + gw_long[19] + ")";
             case 19:
-                decoded.hotspot_09 = "(" + gw_lat[18] + "," + gw_long[18] + ")";
+                decoded.hotspot_19 = "(" + gw_lat[18] + "," + gw_long[18] + ")";
             case 18:
-                decoded.hotspot_08 = "(" + gw_lat[17] + "," + gw_long[17] + ")";
+                decoded.hotspot_18 = "(" + gw_lat[17] + "," + gw_long[17] + ")";
             case 17:
-                decoded.hotspot_07 = "(" + gw_lat[16] + "," + gw_long[16] + ")";
+                decoded.hotspot_17 = "(" + gw_lat[16] + "," + gw_long[16] + ")";
             case 16:
-                decoded.hotspot_06 = "(" + gw_lat[15] + "," + gw_long[15] + ")";
+                decoded.hotspot_16 = "(" + gw_lat[15] + "," + gw_long[15] + ")";
             case 15:
-                decoded.hotspot_05 = "(" + gw_lat[14] + "," + gw_long[14] + ")";
+                decoded.hotspot_15 = "(" + gw_lat[14] + "," + gw_long[14] + ")";
             case 14:
-                decoded.hotspot_04 = "(" + gw_lat[13] + "," + gw_long[13] + ")";
+                decoded.hotspot_14 = "(" + gw_lat[13] + "," + gw_long[13] + ")";
             case 13:
-                decoded.hotspot_03 = "(" + gw_lat[12] + "," + gw_long[12] + ")";
+                decoded.hotspot_13 = "(" + gw_lat[12] + "," + gw_long[12] + ")";
             case 12:
-                decoded.hotspot_02 = "(" + gw_lat[11] + "," + gw_long[11] + ")";
+                decoded.hotspot_12 = "(" + gw_lat[11] + "," + gw_long[11] + ")";
             case 11:
-                decoded.hotspot_01 = "(" + gw_lat[10] + "," + gw_long[10] + ")";
+                decoded.hotspot_11 = "(" + gw_lat[10] + "," + gw_long[10] + ")";
             case 10:
                 decoded.hotspot_10 = "(" + gw_lat[9] + "," + gw_long[9] + ")";
             case 9:
@@ -984,7 +984,7 @@ var server_type = 0;
         }
 ```
 
-Once the data is extracted, it calculates the distance between the RAK10701 Field Tester location and the different gateways that received the LoRaWAN packet. This version of the decoder can handle up to 10 gateways, but it can be extended.
+Once the data is extracted, it calculates the distance between the RAK10701 Field Tester location and the different gateways that received the LoRaWAN packet. This version of the decoder can handle up to 20 gateways, but it can be extended.
 
 ```js
 function distance(lat1, lon1, lat2, lon2) {
@@ -1331,7 +1331,7 @@ function Decoder(bytes, fPort) {
 		var gw_long = {};
 
 		decoded.num_gw = 0;
-		for (idx_tst = 0; idx_tst < 10; idx_tst++)
+		for (idx_tst = 0; idx_tst < 20; idx_tst++)
 		{
 			if (typeof (normalizedPayload.gateways[idx_tst]) != "undefined")
 			{

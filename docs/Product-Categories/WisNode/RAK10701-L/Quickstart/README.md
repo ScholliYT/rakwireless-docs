@@ -871,8 +871,9 @@ function Decoder(bytes, fPort) {
                     break;
                 // Chirpstack
                 case 3:
-                    gw_lat[idx] = rawPayload.rxInfo[idx].location.latitude;
-                    gw_long[idx] = rawPayload.rxInfo[idx].location.longitude;
+                    // Chirpstack v4 uses "rxInfo.metadata.gateway_lat"
+                    gw_lat[idx] = rawPayload.rxInfo[idx].metadata.gateway_lat;
+                    gw_long[idx] = rawPayload.rxInfo[idx].metadata.gateway_long;
                     break;
                 default:
                     console.log("Unknown LNS");
@@ -1366,9 +1367,10 @@ function Decoder(bytes, fPort) {
 					gw_long[idx] = rawPayload.hotspots[idx].long;
 					break;
 				// Chirpstack
-				case 3:
-					gw_lat[idx] = rawPayload.rxInfo[idx].location.latitude;
-					gw_long[idx] = rawPayload.rxInfo[idx].location.longitude;
+        case 3:
+            // Chirpstack v4 uses "rxInfo.metadata.gateway_lat"
+            gw_lat[idx] = rawPayload.rxInfo[idx].metadata.gateway_lat;
+            gw_long[idx] = rawPayload.rxInfo[idx].metadata.gateway_long;
 					break;
 
 				//LORIOT
